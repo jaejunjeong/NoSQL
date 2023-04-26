@@ -13,6 +13,12 @@ show dbs
 ##create db (if db already exist, it will start using it)
 use training
 
+##create collection 'mycollection'
+db.createCollection("mycollection")
+
+##show collection
+show collections
+
 ##inserts the json document into collection 'mycollection'
 db.mycollection.insert({"color":"white","example":"milk"})
 db.mycollection.insert({"color":"blue","example":"sky"})
