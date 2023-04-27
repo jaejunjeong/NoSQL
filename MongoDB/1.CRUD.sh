@@ -6,6 +6,14 @@ db.languages.insert({"name":"scala","type":"functional"})
 db.languages.insert({"name":"c","type":"procedural"})
 db.languages.insert({"name":"c++","type":"object oriented"})
 
+##insert many val into collection
+db.languages.insertMany([{"name":"java","type":"object oriented"}, 
+{"name":"python","type":"general purpose"}, 
+{"name":"scala","type":"functional"}], {
+      writeConcern: <document>,
+      ordered: <boolean>
+   })
+
 ###Read
 ##find first line
 db.languages.findOne()
