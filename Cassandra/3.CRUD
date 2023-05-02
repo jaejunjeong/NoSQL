@@ -1,0 +1,22 @@
+//Insert values
+INSERT into movies(
+movie_id, movie_name, year_of_release)
+VALUES (1,'Toy Story',1995);
+
+//Select data
+select * from movies;
+
+//Select data with specific condition(If there is no partition key in 'WHERE' clause, Cassandra will return error)
+select movie_name from movies where movie_id = 1;
+
+//Update data
+UPDATE movies
+SET year_of_release = 1996
+WHERE movie_id = 4;
+
+//Delete data
+DELETE from movies;
+
+//Delete data with specific condition
+DELETE from movies
+WHERE movie_id = 5;
