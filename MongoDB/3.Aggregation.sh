@@ -39,4 +39,13 @@ db.marks.aggregate([{"$group":{"_id":"$name","sum":{"$sum":"$marks"}}}])
 db.marks.aggregate([{"$group":{"_id":"$subject","max":{"$max":"$marks"}}}])
 
 ##Find the minimum marks scored by each student.
-db.marks.aggregate([{"$group":{"_id":"$name","min":{"$min":"$marks"}}}])
+db.marks.aggregate([{"$group":{"_id":"$name","min":{"$min":"$marks"}}}])\
+
+##Find the year of max movie realesed
+db.movies.aggregate([{"$group":{"_id":"$year","moviecount":{"$sum":1}}},{"$sort":{"moviecount":-1}},{"$limit":1}])
+
+## Find the count of movie released after 1999
+db.movies.aggregate([{$match: {year: {$gt: 1999}}}, {$count: "CNT"}])
+
+## Find the average votes of movie released in 2007
+db.movies.aggregate([{$match: {year: 2007}}, {"$group":{"_id":"$year", "avgVotes": { $avg: "$Votes" }}}])
