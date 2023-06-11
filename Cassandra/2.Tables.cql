@@ -29,3 +29,9 @@ TRUNCATE table movies;
 
 //Drop table
 DROP table movies;
+
+//Copy data from shell
+COPY yourdb.yourtable(id,clarity,cut,price) FROM 'yourdatafile.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+
+//Export data to shell
+COPY diamonds TO 'exportdatafile.csv';
