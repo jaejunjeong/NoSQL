@@ -11,6 +11,9 @@ db.bigdata.find({"account_no":58982}).explain("executionStats").executionStats.e
 ##create index on accout_no
 db.bigdata.createIndex({"account_no":1})
 
+##create complex index on accout_no
+db.bigdata.createIndex({"account_no":1, "balance":1})
+
 ##check index
 db.bigdata.getIndexes()
 
